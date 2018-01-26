@@ -4,7 +4,7 @@ Your task is to use JS TDD to model a Record Store.
 Use constructors and prototypes throughout as well.
 
 ## Part A
-Create a Record object that has an Artist, Title, Genre, and Price
+Create a Record object that has an Artist, Title, Genre, and Price.
 
 Create a Record Store that has a Name, City and an Inventory.
 
@@ -19,7 +19,7 @@ Create a method that lists the inventory.
 
 Create a method so the Record Store can sell a Record and adjusts the Store's balance to account for the Record being sold.
 
-Create a method that reports the finnancial situation of the Store. Balance and value of inventory.
+Create a method that reports the financial situation of the Store. Balance and value of inventory.
 
 Create a method that allows the store to view all Records of a given Genre.
 
