@@ -1,7 +1,7 @@
 {
   "name": "day_4",
   "version": "1.0.0",
-  "description": "",
+  "description": "Record store module",
   "main": "Record.js",
   "scripts": {
     "test": "mocha specs"

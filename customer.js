@@ -14,16 +14,16 @@ Customer.prototype.buyRecord = function(record){
     this.recordCollection.push(record);
   }
 }
+
 Customer.prototype.sellRecord = function(record){
   this.wallet += record.price;
   var index = this.recordCollection.indexOf(record);
   this.recordCollection.splice(index, 1);
 }
+
 Customer.prototype.collectionValue = function(){
   var priceArray = this.recordCollection.map(record => record.price);
-  return priceArray.reduce(function(accumulator, currentvalue){
-    return accumulator + currentvalue;
-  })
+  return priceArray.reduce((priceTotal, currentPrice) => priceTotal + currentPrice)
 }
 
 Customer.prototype.recordByGenre = function(genre){
@@ -34,10 +34,8 @@ Customer.prototype.recordByGenre = function(genre){
 
 Customer.prototype.valueByGenre = function(genre){
   var genreArray = this.recordByGenre(genre);
-  var valueArray = genreArray.map(record => record.price);
-  return valueArray.reduce(function(accumulator, currentvalue){
-    return accumulator + currentvalue;
-  })
+  var priceArray = genreArray.map(record => record.price);
+  return priceArray.reduce((priceTotal, currentPrice) => priceTotal + currentPrice)
 }
 
 Customer.prototype.mostExpensive = function(){
@@ -48,6 +46,18 @@ Customer.prototype.mostExpensive = function(){
     }
   })
   return mostExpensive;
+}
+
+Customer.prototype.orderValueDescend = function(){
+  return this.recordCollection.sort((a, b) => b.price - a.price)
+}
+
+Customer.prototype.orderValueAscend = function(){
+  return this.recordCollection.sort((a, b) => a.price - b.price)
+}
+
+Customer.prototype.compareCollection = function(otherguyValue){
+  return(this.collectionValue() > otherguyValue);
 }
 
 
