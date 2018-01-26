@@ -49,7 +49,6 @@ Customer.prototype.mostExpensive = function(){
 }
 
 Customer.prototype.orderValueDescend = function(){
-
   return this.recordCollection.sort((a, b) => b.price - a.price)
 }
 
