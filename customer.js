@@ -49,11 +49,23 @@ Customer.prototype.mostExpensive = function(){
 }
 
 Customer.prototype.orderValueDescend = function(){
+
   return this.recordCollection.sort((a, b) => b.price - a.price)
 }
 
 Customer.prototype.orderValueAscend = function(){
   return this.recordCollection.sort((a, b) => a.price - b.price)
+}
+
+  return this.recordCollection.sort(function(a, b){
+    return b.price - a.price;
+  })
+}
+
+Customer.prototype.orderValueAscend = function(){
+  return this.recordCollection.sort(function(a, b){
+    return a.price - b.price;
+  })
 }
 
 Customer.prototype.compareCollection = function(otherguyValue){

@@ -1,7 +1,10 @@
 {
   "name": "day_4",
   "version": "1.0.0",
+
   "description": "Record store module",
+
+
   "main": "Record.js",
   "scripts": {
     "test": "mocha specs"
@@ -10,5 +13,6 @@
   "license": "ISC",
   "devDependencies": {
     "mocha": "^5.0.0"
-  }
+  },
+  "description": ""
 }

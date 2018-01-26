@@ -9,9 +9,11 @@ describe('Customer', function(){
   let record2;
   let record3;
   let customerOne;
+  let customerTwo;
 
   beforeEach(function(){
     customerOne = new Customer("Phil", 50);
+    customerTwo = new Customer("Matt", 75);
     recordStore = new RecordStore("Rick's Records", "Edinburgh");
     record1 = new Record("jimi hendrix", "little wing", "rock", 12.99);
     record2 = new Record("led zeppelin", "kashmir", "rock", 11.99);
@@ -62,5 +64,27 @@ describe('Customer', function(){
     customerOne.buyRecord(record2);
     customerOne.buyRecord(record3);
     assert.strictEqual(customerOne.mostExpensive(), record1)
+  })
+
+  it('can sort by descending order of value', function(){
+    customerOne.buyRecord(record1);
+    customerOne.buyRecord(record3);
+    customerOne.buyRecord(record2);
+    assert.deepEqual(customerOne.orderValueDescend(), [record1, record2, record3])
+  })
+
+  it('can sort by ascending order of value', function(){
+    customerOne.buyRecord(record1);
+    customerOne.buyRecord(record3);
+    customerOne.buyRecord(record2);
+    assert.deepEqual(customerOne.orderValueAscend(), [record3, record2, record1])
+  })
+
+  it('can compare value of collection to other customer', function(){
+    customerOne.buyRecord(record1);
+    customerOne.buyRecord(record3);
+    customerTwo.buyRecord(record3);
+    customerTwo.buyRecord(record2);
+    assert.strictEqual(customerOne.compareCollection(customerTwo.collectionValue()), true)
   })
 })
